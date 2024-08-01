@@ -223,6 +223,19 @@ while (rep <= 10){
 
 
 
+// DEBUGGING TOOLS 
+
+console.log(measurement.value);
+console.warn(measurement.value); //yellow in console
+console.error(measurement.value); //red in console
+
+// to use the debugger, go to browser, inspect element, and sources, use break points
+
+debugger; // creates a break point in the script 
+
+
+
+
 
 
 
