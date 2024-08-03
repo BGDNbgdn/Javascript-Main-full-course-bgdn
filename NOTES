@@ -240,6 +240,8 @@ debugger; // creates a break point in the script
 
 //// DOM MANIPULATION
 
+
+
 document.querySelector('.message').textContent = ' Hello' // select a query, more precisely its text content and modify it
 
 document.querySelector('.guess').value = 10; // to access a person inseted value
@@ -259,7 +261,37 @@ document.querySelector('.check').addEventListener('click', function () {
 
 displayMessage('No number'); // so when called it will display No number
 
+ // use querySelectorALL to select all isntances of a class, otherwise the code selects only the first instance, we can even iterate this one. USE THIS TO ADD EVENT LISTENERS TO QUELRYSELECTOR ALL
+const btnsOpenModal = document.querySelectorAll('.show-modal');
 
+for (let i = 0; i < btnsOpenModal.length; i++)
+  btnsOpenModal[i].addEventListener('click', function () {
+    console.log('button clicked');
+  });
+
+
+//
+btnsOpenModal.classList.remove('hidden') //classList (lets add remove etc classes) !!!! no need to use . before the class, the . is used only to select
+
+
+
+
+const closeModal = function () {
+    modal.classList.add('hidden');
+    overlay.classList.add('hidden');
+  };
+  
+  btnCloseModal.addEventListener('click', closeModal); // we used closeModal without () because this lets js know that we want to execute it only once the button is clicked, using () directly will just call the function directly
+
+
+
+  document.addEventListener('keydown', function (e) {
+    if (e.key === 'Escape') {
+      if (!modal.classList.contains('hidden')) {
+        closeModal();
+      }
+    }
+// when using keydown or any other key related event, the function(e) will return the key pressed class, use .key to get the key.
 
 
 
