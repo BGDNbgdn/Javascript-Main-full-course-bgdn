@@ -266,7 +266,7 @@ displayMessage('No number'); // so when called it will display No number
 
 
 //MATH RANDOM
-const number = Math.trunc(Math.random()*20)+1 // multriply by the biggest numebr you want to get, and add one to reach the biggest number, otherwise it stops at 19 (math.trunc) removes everything after comma
+const number = Math.trunc(Math.random()*20)+1 // multriply by the biggest numebr you want to get, and add one to reach the biggest number, otherwise it stops at 19 (math.trunc) removes everything after comma.
 
 
 
