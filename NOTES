@@ -238,6 +238,35 @@ debugger; // creates a break point in the script
 
 
 
+//// DOM MANIPULATION
+
+document.querySelector('.message').textContent = ' Hello' // select a query, more precisely its text content and modify it
+
+document.querySelector('.guess').value = 10; // to access a person inseted value
+
+document.querySelector('.check').addEventListener('click', function () {
+    console.log(document.querySelector('.guess').value);
+  }); // we select an elen=ment (check button), and add an event listener to it, the click event. and we created an event handler (the function). When the button is clicked the function takes the vlaue from the .guess claass field
+  
+  document.querySelector('body').style.backgroundColor = '#60b347' //we select the stlye (CSS) of the body element .backColor is the attribute in CSS (use camelCase when you see a -)
+
+// replace a query with a function 
+  document.querySelector('.message').textContent = ' No number'; //this is the basic code
+
+  const displayMessage = function (message) {
+    document.querySelector('.message').textContent = message;
+  }; //but we can make a function that takes as argument the value to display for example
+
+displayMessage('No number'); // so when called it will display No number
+
+
+
+
+
+
+
+//MATH RANDOM
+const number = Math.trunc(Math.random()*20)+1 // multriply by the biggest numebr you want to get, and add one to reach the biggest number, otherwise it stops at 19 (math.trunc) removes everything after comma
 
 
 
