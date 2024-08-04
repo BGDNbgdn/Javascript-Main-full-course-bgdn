@@ -312,13 +312,67 @@ const number = Math.trunc(Math.random()*20)+1 // multriply by the biggest numebr
 
 
 
+//////////////////////////////////////////////////////////////
+//scoping works only on way, from the deep to the biggest scope, not the other way.
+
+function calcAge(birthyear) {
+    const age = 2037 - birthyear;
+    console.log(firstName);
+  
+    function printAge() {
+      const output = `${firstName} you are ${age}, born in ${birthyear}`;
+      console.log(output);
+      if (birthyear >= 1981 && birthyear <= 1996) {
+        const str = `Oh, and you are a millenial, ${firstName}`; //has acces to firstname since its global variable
+        console.log(str); //is available only insidde this if statement, this applies to var and const variables. doenst work the same way on var.
+      }
+    }
+    //console.log(output); will not be accessible since its in deeper scope
+    printAge();
+    return age;
+  }
+  //any function in a block scope is accessible only by this scope or deeper scope
+  
+  const firstName = 'Jonas';
+  calcAge(1991);
+
+  ///////////////////////////////////////
 
 
+//////THIS THIS THIS THIS THIS THIS THIS THIS THIS ///////////////
+
+console.log(this);
+
+const calcAge = function (birthyear) {
+  console.log(2037 - birthyear);
+  console.log(this); //returns indefined, it gets its own this keywork which is just not defined
+};
+calcAge(1991);
+
+const calcAgeArrow = birthyear => {
+  console.log(2037 - birthyear);
+  console.log(this); // returns window, which is the parent global scope, arrow function doesnt have its own this
+};
+calcAgeArrow(1980);
+
+const jonas = {
+  year: 1991,
+  calcAge: function () {
+    console.log(this); // will point to the object that is calling the method, so Jonas
+    console.log(2037 - this.year);
+  },
+};
+jonas.calcAge();
+
+const matilda = {
+  year: 2017,
+};
+
+matilda.calcAge = jonas.calcAge; // we borowed a method (calcAge (functions in objects are called method), so when we type matilda in console, we can see that she has a method calcage)
+matilda.calcAge(); //now when previously method of jonas, is available in matilda, and when is called, this points to the object calling the moethod, so therefore it will point to mathilda. 
 
 
-
-
-
+/////////////////////////////////////////
 
 
 
