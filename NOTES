@@ -406,6 +406,15 @@ const [starter, mainCourse] = restaurant.order(2, 0);
 console.log(starter);
 console.log(mainCourse);
 
+//destructuring a nested array 
+const nested = [2, 4, [5, 6]];
+const [i, , [j, k]] = nested;
+console.log(i, j, k);
+
+//Default values //When a value is undefined (like the second position in the second array, default vlaues will be console loged)
+const [p = 1, q = 1, r = 1] = [8, 9];
+console.log(p, q, r); ==> 8 9 1
+
 
 
 

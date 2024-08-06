@@ -32,7 +32,13 @@ const restaurant = {
   },
 };
 
-console.log(restaurant.order(2, 0));
-const [starter, mainCourse] = restaurant.order(2, 0);
-console.log(starter);
-console.log(mainCourse);
+//destructuring objects
+const { name, categories, openingHours } = restaurant;
+console.log(name, openingHours, categories);
+
+const {
+  name: restaurantName,
+  categories: tags,
+  openingHours: hours,
+} = restaurant;
+console.log(restaurantName, tags, hours);
