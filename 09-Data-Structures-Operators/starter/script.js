@@ -30,15 +30,58 @@ const restaurant = {
       close: 24,
     },
   },
+
+  orderDelivery: function (
+    { starterIndex = 1, mainIndex = 0, time = '20:00', address } //use curly braces in function arguments so it can destructure it
+  ) {
+    console.log(
+      this.starterMenu[starterIndex],
+      this.mainMenu[mainIndex],
+      time,
+      address
+    );
+  },
 };
+
+//this object will be destructured by the oredrdelivery function, now 4 different arguments, but 1 argumenty separated into
+restaurant.orderDelivery({
+  time: '22:30',
+  address: 'via del corso',
+  mainIndex: 2,
+  starterIndex: 2,
+});
 
 //destructuring objects
 const { name, categories, openingHours } = restaurant;
 console.log(name, openingHours, categories);
 
+//renaming
 const {
   name: restaurantName,
   categories: tags,
   openingHours: hours,
 } = restaurant;
 console.log(restaurantName, tags, hours);
+
+//default values
+const { menu = [], starterMenu: starters = [] } = restaurant;
+console.log(menu, starters);
+
+//mutating  variables
+let a = 111;
+let b = 999;
+const obj = { a: 23, b: 7, c: 14 };
+
+({ a, b } = obj);
+console.log(a, b); // ==> 23 7
+
+//nested objects
+const {
+  fri: { open: o, close: c }, //assigning o and c variable names to open and close nested objects
+} = openingHours;
+console.log(o, c);
+
+restaurant.orderDelivery({
+  address: 'via del holla',
+  starterIndex: 1,
+});
