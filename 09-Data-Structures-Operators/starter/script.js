@@ -82,6 +82,6 @@ const {
 console.log(o, c);
 
 restaurant.orderDelivery({
-  address: 'via del holla',
+  address: 'via del hola',
   starterIndex: 1,
 });
