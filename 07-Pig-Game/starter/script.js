@@ -84,7 +84,7 @@ btnHold.addEventListener('click', function () {
         .querySelector(`.player--${activePlayer}`)
         .classList.remove('player--active');
     } else {
-      //else, switch to other player
+      //else, switch to another player
       switchPlayer();
     }
   }
