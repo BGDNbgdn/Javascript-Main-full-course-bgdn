@@ -28,4 +28,4 @@ const matilda = {
 };
 
 matilda.calcAge = jonas.calcAge; // we borowed a method (calcAge (functions in objects are called method), so when we type matilda in console, we can see that she has a method calcage)
-matilda.calcAge(); //now when previously method of jonas, is available in matilda, and when is called, this points to the object calling the moethod, so therefore it will point to mathilda.//
+matilda.calcAge(); //now when previously method of jonas, is available in matilda, and when is called, this points to the object calling the moethod, so therefore it will point to mathilda//
