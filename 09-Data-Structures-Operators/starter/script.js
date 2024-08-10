@@ -86,4 +86,4 @@ restaurant.orderDelivery({
   starterIndex: 1,
 });
 
-//The spread operator
+//The spread operato r
