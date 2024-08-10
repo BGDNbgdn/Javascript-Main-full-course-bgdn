@@ -412,6 +412,10 @@ const restaurant = {
       address
     );
   },
+
+  orderPasta: function (ing1, ing2, ing3){
+    console.log(`here is your pasta with ${ing1},${ing2},${ing3} `)
+  }
 };
 
 //destructuring dont forget to use const to declare variables
@@ -485,3 +489,42 @@ restaurant.orderDelivery({
 }) // ==> Bruschetta"Pizza""20:00""via del hola"
 
 
+
+
+
+//Spread operator, allows to write comma separated values (arrays, functions...), works on iterables (arrays, strings, maps, sets, not objects)
+
+const arr= [7,8,9]
+
+const newArr = [1,2,...arr]
+console.log(newArr) => [1,2,7,8,9]
+console.log(...newArr) => 1 2 7 8 9 
+
+const newMenu = [...restaurant.mainMenu, 'Gnocci' ]
+console.log(newMenu) => [pizza, pasta,risotto, gnocci]
+
+//spread operator takes all the values and doesnt create new variables. 
+
+//copy array 
+const mainMenuCopy = [...restaurant.mainMenu]
+
+//join 2 arrays
+const menu = [...restaurant.starterMenu, ...restaurant.mainMenu]
+
+const str = 'Jonas'
+const letters = [...str,' ', 'S.']
+console.log(letters) ==> [J o n a s S.] //cannot add ...str into ${}
+
+//real world example
+const ingredients = [prompt("Let's make pasta! ing1",prompt("Let's make pasta! ing2"),prompt("Let's make pasta! ing3"))]
+
+restaurant.orderPasta(...ingredients)==> inserts arguments separetly 
+
+//Objects 
+const newRestaurant = {foundingyear : 1998, ...restaurant, founder : "Guiseppe"}
+//created a new object, that copier the initial restaurant and adds new values to it. 
+
+const restaurantCopy = {...restaurant}
+restaurantCopy.name = 'ristoeant roma'
+console.log(restaurantCopy.name) ==> 'ristorant roma'
+console.log(restaurant.name) ==> 'classico italiano'
