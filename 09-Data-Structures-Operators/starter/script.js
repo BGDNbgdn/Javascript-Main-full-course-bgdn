@@ -47,3 +47,29 @@ const restaurant = {
     console.log(otherIngredients);
   },
 };
+
+//Logical Assignment Operators
+
+const rest1 = {
+  name: 'Capri',
+  numGuests: 0,
+};
+
+const rest2 = {
+  name: 'La Piazza',
+  owner: 'Giovanni Rossi',
+};
+//OR assignment operator
+//rest1.numberGuests = rest1.numGuests || 10;
+//rest2.numberGuests = rest2.numGuests || 10;
+
+rest1.numGuests ||= 10; //numGuests 10 since numGuests is 0
+rest2.numGuests ||= 10; //numGuests 10 since numGuests is falsy bcs doesnt exist
+
+//Nullish assignment operator
+rest1.numGuests ??= 10; //numGuests 0 since numGuests is 0 and considered as truthy value
+rest2.numGuests ??= 10; //numGuests 10 since numGuests is falsy bcs doesnt exist
+
+//AND assignment operator
+rest1.owner &&= 'ANONYMOUS'; //assigns a value to a variable if its truthy, so rest1.owner doenst exist, so no creation and no assigment
+rest2.owner &&= 'ANONYMOUS'; // rest2.owner became ANONYMOUS since it exists
