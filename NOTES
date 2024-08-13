@@ -528,3 +528,8 @@ const restaurantCopy = {...restaurant}
 restaurantCopy.name = 'ristoeant roma'
 console.log(restaurantCopy.name) ==> 'ristorant roma'
 console.log(restaurant.name) ==> 'classico italiano'
+
+
+
+//Rest Pattern and Parameters
+
