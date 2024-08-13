@@ -571,10 +571,10 @@ add(8, 2, 5, 3, 1, 5, 1);
 const x = [23, 5, 7];
 add(...x); //the spread operator will spread the array into this function, and they will be collected into numbers array by the rest parameters.
 
-//additional method for object restaurant : orderPizza: function (mainIngridient, ...otherIngredients) {
+//additional method for object restaurant : orderPizza: function (mainIngridient, ...otherIngredients ) {
     console.log(mainIngridient);
     console.log(otherIngredients);
   },
 
 
-restaurant.orderPizza('mushrooms', 'onion', 'olives', 'spinach');
+restaurant.orderPizza('mushrooms', 'onion', 'olives', 'spinach') ;
