@@ -41,6 +41,11 @@ const restaurant = {
       address
     );
   },
+
+  orderPizza: function (mainIngridient, ...otherIngredients) {
+    console.log(mainIngridient);
+    console.log(otherIngredients);
+  },
 };
 
 //this object will be destructured by the oredrdelivery function, now 4 different arguments, but 1 argumenty separated into
@@ -51,39 +56,43 @@ restaurant.orderDelivery({
   starterIndex: 2,
 });
 
-//destructuring objects
-const { name, categories, openingHours } = restaurant;
-console.log(name, openingHours, categories);
+//The rest operator, is written on the left of = sign
+//The rest operator stores all values left in an array when destructuring
 
-//renaming
-const {
-  name: restaurantName,
-  categories: tags,
-  openingHours: hours,
-} = restaurant;
-console.log(restaurantName, tags, hours);
+const [a, b, ...others] = [1, 2, 3, 4, 5]; //we create a new array called others
+console.log(a, b, others);
 
-//default values
-const { menu = [], starterMenu: starters = [] } = restaurant;
-console.log(menu, starters);
+const [pizza, , risotto, ...otherFood] = [
+  ...restaurant.mainMenu,
+  ...restaurant.starterMenu,
+];
+console.log(pizza, risotto, otherFood);
 
-//mutating  variables
-let a = 111;
-let b = 999;
-const obj = { a: 23, b: 7, c: 14 };
+//Objects with rest operator
+const { sat, ...weekdays } = restaurant.openingHours; //we put saturday in Sat, so the rest is thu and fri
+console.log(weekdays); // ==> {thu: {open: 12, close: 22}, fri: {open: 11, close: 23}}
+console.log(sat);
 
-({ a, b } = obj);
-console.log(a, b); // ==> 23 7
+//functions  with rest operator
+const add = function (...numbers) {
+  console.log(numbers); // this syntax (...number) packs all the arguments into an array (called rest arguments)
+  let sum = 0;
+  for (let i = 0; i < numbers.length; i++) {
+    sum += numbers[i];
+  }
+  console.log(sum);
+};
+add(2, 3);
+add(5, 3, 7, 2);
+add(8, 2, 5, 3, 1, 5, 1);
 
-//nested objects
-const {
-  fri: { open: o, close: c }, //assigning o and c variable names to open and close nested objects
-} = openingHours;
-console.log(o, c);
+const x = [23, 5, 7];
+add(...x); //the spread operator will spread the array into this function, and they will be collected into numbers array by the rest parameters.
 
-restaurant.orderDelivery({
-  address: 'via del hola',
-  starterIndex: 1,
-});
+//additional method for object restaurant : orderPizza: function (mainIngridient, ...otherIngredients) {
+    console.log(mainIngridient);
+    console.log(otherIngredients);
+  },
 
-//The spread operator
+
+restaurant.orderPizza('mushrooms', 'onion', 'olives', 'spinach');
