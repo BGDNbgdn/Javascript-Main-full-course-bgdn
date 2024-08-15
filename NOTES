@@ -591,7 +591,7 @@ const guests1 = restaurant.numGuests ? restaurant.numGuests : 10;
 console.log(guests1); // guests = 23
 
 const guests2 = restaurant.numGuests || 10;
-console.log(guests2); //returns 23 since its a true value, othervise if numGuests didnt exist we would get 10, doesnt work if number of guests is 0, we can use it to set default values, see the next part to solve this
+console.log(guests2); //returns 23 since its a true value, othervise if numGuests didnt  exist we would get 10, doesnt work if number of guests is 0, we can use it to set default values, see the next part to solve this
 
 //AND Operator
 console.log(0 && 'Jonas'); // returns 0, it returns the first falsy value found, if all operants are true returns the last truthy one, so Jonas
