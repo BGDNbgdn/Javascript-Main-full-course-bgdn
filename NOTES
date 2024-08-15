@@ -639,3 +639,71 @@ rest2.numGuests ??= 10; //numGuests 10 since numGuests is falsy bcs doesnt exist
 //AND assignment operator
 rest1.owner &&= 'ANONYMOUS'; //assigns a value to a variable if its truthy, so rest1.owner doenst exist, so no creation and no assigment
 rest2.owner &&= 'ANONYMOUS'; // rest2.owner became ANONYMOUS since it exists
+
+
+
+
+
+//Looping arrays: the for-of loop
+
+const menu = [...restaurant.starterMenu, ...restaurant.mainMenu];
+
+for (const item of menu) {
+  console.log(item); //logs each item 1 by 1
+}
+
+for (const item of menu.entries()) {
+  console.log(item); //returns item and its index in separate arrays
+}
+console.log([...menu.entries()]); //[Log] [[0, "Focaccia"], [1, "Bruschetta"], [2, "Garlic Bread"], [3, "Caprese Salad"], [4, "Pizza"], [5, "Pasta"], [6, "Risotto"]] (7) (script.js, line 62)
+
+
+
+//Enhanced Object Literals
+
+//ES6 Object literals
+const hours1 = {
+  thu: {
+    open: 12,
+    close: 22,
+  },
+  fri: {
+    open: 11,
+    close: 23,
+  },
+  sat: {
+    open: 0, // Open 24 hours
+    close: 24,
+  },
+};
+
+//to add this object to another object it is enough just to write the following inside the object we want to insert it into
+hours1, //instead of writing hours1 : hours1
+
+//Methods in ES6
+//we can write methods inside of objects without function and colons
+orderPizza(mainIngridient, ...otherIngredients) {
+  console.log(mainIngridient);
+  console.log(otherIngredients);
+},
+
+//Compute property names
+const weekdays = ['mon', 'tue' ,'wed', 'thu' ,'fri', 'sat','sun'  ];
+
+const hours = {
+  [weekdays[3]]: {
+    open: 12,
+    close: 22,
+  },
+  [weekdays[4]]: {
+    open: 11,
+    close: 23,
+  },
+  [`day-${2+4}`]: {
+    open: 0, // Open 24 hours
+    close: 24,
+  },
+};
+//1. returns wed 
+//2. returns thu
+//3. returns "day-6"
