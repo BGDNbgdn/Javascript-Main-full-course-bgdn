@@ -707,3 +707,31 @@ const hours = {
 //1. returns wed 
 //2. returns thu
 //3. returns "day-6"
+
+
+
+//Optional chaining (?.)
+
+//Without optional chaining
+//console.log(restaurant.openingHours.mon.open); //error
+
+//With optional chaining
+console.log(restaurant.openingHours.mon?.open); //we check if mon exists, returns undefined
+console.log(restaurant.openingHours?.mon?.open); //we check if openingHours and mon exists, returns undefined if dont exist
+
+//Exmaple
+const days = ['mon', 'tue', 'wed', 'thu', 'fri', 'sat', 'sun'];
+
+for (const day of days) {
+  console.log(day);
+  const open = restaurant.openingHours[day]?.open ?? 'closed'; //using [day] since its not a real property name, we use ?? since one of the values is 0, so its considered as falsy by || operator
+  console.log(`On ${day}, we open at ${open}`);
+}
+
+// Methods
+console.log(restaurant.order?.(0, 1) ?? 'Method does not exist'); //if the method exists, it passes to (0,1) and trigers the method, if doenst exist returns Doesnt exist
+
+//Arrays
+const users = [{ name: 'Jonas', email: 'hello@jonas.io' }];
+
+console.log(users[0]?.name ?? 'User array empty'); //check if users array [0] exists, than proceeds to .name 
