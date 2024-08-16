@@ -860,7 +860,7 @@ console.log(orderSet.has('Pizza')); // True or False
 
 orderSet.add('Garlic Bread'); //Adding a value to the set
 orderSet.delete('Pizza'); //Removing a value from the set
-//orderSet.clear(); //Removes all values form the set
+orderSet.clear(); //Removes all values form the set
 
 for (const order of orderSet) console.log(order); //retreive values from
 
@@ -872,3 +872,44 @@ console.log(staffUnique); //returns an array since we used the spread operator t
 //["Waiter", "Chef", "Manager"]
 
 console.log(new Set('jonasschmedtman').size); //11
+
+
+
+
+//MAPS FUNDAMENTALS
+//Maps are similar to objects, but the keys can be anything, objects, other maps, strings, int, etc
+
+const rest = new Map();
+rest.set('name', 'Classico Italiano');
+rest.set(1, ' Firenze Italy');
+console.log(rest.set(2, 'Lisbon, Portugal')); //Map {"name" => "Classico Italiano", 1 => " Firenze Italy", 2 => "Lisbon, Portugal"}
+
+//we can call set multiple times since set() returns a Map
+rest
+  .set('categories', ['Italian', 'Pizzeria', 'Vegetarian', 'Organic'])
+  .set('open', 11)
+  .set('close', 23)
+  .set(true, 'We are open')
+  .set(false, 'We are closed');
+
+console.log(rest.get('name')); //Classico Italiano
+
+//Example of using true/false keys
+const time = 21;
+console.log(rest.get(time > rest.get('open') && time < rest.get('close'))); //We are open
+
+console.log(rest.has('categories')); //true
+console.log(rest.delete(2)); //deletes property from Map
+console.log(rest.size); //7 (bcs 7 items)
+//rest.clear(); //clears the Map
+
+//Array as a key
+rest.set([1, 2], 'Test');
+console.log(rest.get([1, 2])); //doesnt work since both [1,2] are different arrays in the HEAP, to solve this :
+const arr = [1, 2];
+rest.set(arr, 'Test');
+console.log(rest.get(arr)); //Test
+
+//DOM element as a key and assigning value to it
+rest.set(document.querySelector('h1'), 'Heading');
+console.log(rest);
