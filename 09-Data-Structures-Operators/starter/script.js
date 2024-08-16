@@ -52,3 +52,10 @@ const restaurant = {
     console.log(otherIngredients);
   },
 };
+
+//MAPS FUNDAMENTALS
+//Maps are similar to objects, but the keys can be anything, objects, other maps, strings, int, etc
+
+const rest = new Map();
+rest.set('name', 'Classico Italiano');
+console.log(rest);

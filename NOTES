@@ -836,4 +836,39 @@ for (const player of game.scored) {
 }
 
 console.log(scorers);
+//END OF EXERCISE
 
+
+
+
+//SETS
+//A collection of unique values (no duplicates)
+
+const orderSet = new Set([
+  'Pasta',
+  'Pizza',
+  'Pizza',
+  'Risotto',
+  'Pasta',
+  'Pizza',
+]);
+
+console.log(orderSet); //Set {"Pasta", "Pizza", "Risotto"}
+console.log(new Set('Jonas')); //Set {"J", "o", "n", "a", "s"}
+console.log(orderSet.size); //3
+console.log(orderSet.has('Pizza')); // True or False
+
+orderSet.add('Garlic Bread'); //Adding a value to the set
+orderSet.delete('Pizza'); //Removing a value from the set
+//orderSet.clear(); //Removes all values form the set
+
+for (const order of orderSet) console.log(order); //retreive values from
+
+//Example real world usage
+const staff = ['Waiter', 'Chef', 'Waiter', 'Manager', 'Chef', 'Waiter'];
+
+const staffUnique = [...new Set(staff)];
+console.log(staffUnique); //returns an array since we used the spread operator that turns every iterable into an array
+//["Waiter", "Chef", "Manager"]
+
+console.log(new Set('jonasschmedtman').size); //11
