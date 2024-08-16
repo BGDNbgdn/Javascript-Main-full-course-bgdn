@@ -644,6 +644,8 @@ rest2.owner &&= 'ANONYMOUS'; // rest2.owner became ANONYMOUS since it exists
 
 
 
+
+
 //Looping arrays: the for-of loop
 
 const menu = [...restaurant.starterMenu, ...restaurant.mainMenu];
@@ -735,3 +737,103 @@ console.log(restaurant.order?.(0, 1) ?? 'Method does not exist'); //if the metho
 const users = [{ name: 'Jonas', email: 'hello@jonas.io' }];
 
 console.log(users[0]?.name ?? 'User array empty'); //check if users array [0] exists, than proceeds to .name 
+
+
+
+//Looping Objects: Objects Keys, Values and Entries
+
+//Property NAMES
+const properties = Object.keys(openingHours);
+console.log(properties); //["thu", "fri", "sat"]
+
+//Property VALUES
+const values = Object.values(openingHours);
+console.log(values); //[{open: 12, close: 22}, {open: 11, close: 23}, {open: 0, close: 24}]
+
+//Entries object
+const entries = Object.entries(openingHours);
+console.log(entries); //[["thu", {open: 12, close: 22}], ["fri", {open: 11, close: 23}], ["sat", {open: 0, close: 24}]]
+
+//Example with destructuring
+//the entries variable stores the openingHours composed of an array and a nested object (which we also destructure into open and close)
+// [key, value], we could also replace key by any other name, since its already an array and not an object where you need to call the exact name
+for (const [key, { open, close }] of entries) {
+  console.log(`On ${key} we open at ${open} and close at ${close}`);
+}
+//On thu we open at 12 and close at 22
+//On fri we open at 11 and close at 23
+//On sat we open at 0 and close at 24
+
+
+//EXERCISE EXAMPLE 2
+const game = {
+  team1: 'Bayern Munich',
+  team2: 'Borrussia Dortmund',
+  players: [
+    [
+      'Neuer',
+      'Pavard',
+      'Martinez',
+      'Alaba',
+      'Davies',
+      'Kimmich',
+      'Goretzka',
+      'Coman',
+      'Muller',
+      'Gnarby',
+      'Lewandowski',
+    ],
+    [
+      'Burki',
+      'Schulz',
+      'Hummels',
+      'Akanji',
+      'Hakimi',
+      'Weigl',
+      'Witsel',
+      'Hazard',
+      'Brandt',
+      'Sancho',
+      'Gotze',
+    ],
+  ],
+  score: '4:0',
+  scored: ['Lewandowski', 'Gnarby', 'Lewandowski', 'Hummels'],
+  date: 'Nov 9th, 2037',
+  odds: {
+    team1: 1.33,
+    x: 3.25,
+    team2: 6.5,
+  },
+};
+
+//1.Loop over the game.scored array and print each player name to the console, along with the goal number (Example: "Goal 1: Lewandowski")
+let i = 1;
+for (const [i, player] of game.scored.entries()) {
+  console.log(`Goal ${i + 1}: ${player}`);
+}
+
+//2.Use a loop to calculate the average odd and log it to the console (We already studied how to calculate averages, you can go check if you don't remember)
+let avgSum = 0;
+
+for (const odd of Object.values(game.odds)) {
+  avgSum += odd;
+}
+console.log(avgSum / Object.values(game.odds).length);
+
+//3.Print the 3 odds to the console, but in a nice formatted way, exactly like this:Odd of victory Bayern Munich: 1.33 Odd of draw: 3.25 Odd of victory Borrussia Dortmund: 6.5 Get the team names directly from the game object, don't hardcode them (except for "draw").
+
+for (const [team, odd] of Object.entries(game.odds)) {
+  const teamStr = team === 'x' ? 'Draw' : `victory ${game[team]}`; //dont forget to use [] when using a variable storing the name of the property
+
+  console.log(`Odd of ${teamStr} ${odd}`);
+}
+
+//4. Bonus: Create an object called 'scorers' which contains the names of the players who scored as properties, and the number of goals as the value.
+const scorers = {};
+for (const player of game.scored) {
+  scorers[player] ? scorers[player]++ : (scorers[player] = 1);
+}
+
+console.log(scorers);
+
