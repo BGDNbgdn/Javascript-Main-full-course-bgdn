@@ -901,7 +901,7 @@ console.log(rest.get(time > rest.get('open') && time < rest.get('close'))); //We
 console.log(rest.has('categories')); //true
 console.log(rest.delete(2)); //deletes property from Map
 console.log(rest.size); //7 (bcs 7 items)
-//rest.clear(); //clears the Map
+rest.clear(); //clears the Map
 
 //Array as a key
 rest.set([1, 2], 'Test');
@@ -913,3 +913,38 @@ console.log(rest.get(arr)); //Test
 //DOM element as a key and assigning value to it
 rest.set(document.querySelector('h1'), 'Heading');
 console.log(rest);
+
+
+
+
+//MAPS ITERATION
+
+const question = new Map([
+  ['question', 'What is the best programming language in the world?'],
+  [1, 'C'],
+  [2, 'Java'],
+  [3, 'JavaScript'],
+  ['correct', 3],
+  [true, 'Correct 🎉'],
+  [false, 'Try again!'],
+]);
+console.log(question);
+
+//Convert object to map
+const hoursMap = new Map(Object.entries(openingHours));
+console.log(hoursMap);
+
+//Quiz app
+console.log(question.get('question'));
+for (const [key, values] of question) {
+  if (typeof key === 'number') console.log(`Answer ${key}: ${values}`);
+}
+const answer = Number(prompt('Your answer'));
+console.log(question.get(question.get('correct') === answer));
+
+//Convert a Map to Array
+[...question]; //[["question", "What is the best programming language in the world?"], [1, "C"], [2, "Java"], [3, "JavaScript"], ["correct", 3], [true, "Correct 🎉"], [false, "Try again!"]]
+
+[...question.keys()]//returns an array with keys
+[...question.values()]//returns an array with values
+

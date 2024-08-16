@@ -52,5 +52,3 @@ const restaurant = {
     console.log(otherIngredients);
   },
 };
-
-//MAPS ITERATION
