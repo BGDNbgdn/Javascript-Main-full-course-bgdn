@@ -1130,7 +1130,7 @@ document.querySelector('button').addEventListener('click', function () {
   }
 });
 
-//END OF    EXERCISE
+//END OF   EXERCISE
 
 //BONUS EXERCISE 
 
