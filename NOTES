@@ -1132,7 +1132,7 @@ document.querySelector('button').addEventListener('click', function () {
 
 //END OF  EXERCISE
 
-//BONUS EXERCISE 
+//BONUS  EXERCIS E 
 
 // Data needed for a later exercise
 const flights =
