@@ -33,7 +33,7 @@ const restaurant = {
   },
 
   orderDelivery: function (
-    { starterIndex = 1, mainIndex = 0, time = '20:00', address } //use curly braces in function arguments so it can destructure it
+    { starterIndex = 1, mainIndex = 0, time = '20:00', address } // use curly braces in function arguments so it can destructure it
   ) {
     console.log(
       this.starterMenu[starterIndex],
