@@ -33,7 +33,7 @@ const restaurant = {
   },
 
   orderDelivery: function (
-    { starterIndex = 1, mainIndex = 0, time = '20:00', address } //  use curly   b
+    { starterIndex = 1, mainIndex = 0, time = '20:00', address } //  use curly b
   ) {
     console.log(
       this.starterMenu[starterIndex],
